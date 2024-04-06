@@ -9,39 +9,26 @@
 <body>
 
 
-    
-<input type="text" name="" id="display">
+
+<input type="text" name="tdlist" id="display">
 <button onclick="addlist()">Add</button>
 <button onclick="removelist()">Remove</button>
 <br>
 
 
-<form id="tdList">
+<form id="tdList" name="thelist">
 </form>
+<hr>
+<p id="text2">Here's how many you've done</p>
+<p id="text1" >Here what you've done!</p>
 
-<p id="quantity"></p>
+
+
+
 
 <hr>
 
-<form name="test">
-    <input type="checkbox" name="colors" value="red"/><br>
-    <input type="checkbox" name="colors" value="orange"/><br>
-    <input type="checkbox" name="colors" value="yellow"/><br>
-    <input type="checkbox" name="colors" value="blue"/><br>
-  </form>
-  <span id="res"></span>
-<script>
-    document.querySelector("[name=test]").addEventListener("click", 
-  e => {
-    let tgt = e.target;
-    if (tgt.name==="colors") {
-      let checked = [...e.currentTarget.querySelectorAll(`[name=${tgt.name}]:checked`)];
-      document.getElementById("res").innerHTML = checked.map(inp => inp.value).join(", ")
-    }   
-})
-</script>
 
-<input type="checkbox" name="" id=""><label for="">Hello World</label></input>
 
 
 

@@ -4,8 +4,8 @@
 let display = document.getElementById("display");
 let todolist = document.getElementById("tdList");// variable that calls ul
 let quantity = document.getElementById("quantity");
-
-
+var thelbllist = []
+var children = todolist.children.length-1
 
 
 
@@ -17,14 +17,21 @@ function addlist(){
     var inpt = document.createElement("input");
     var lbl = document.createElement("label");
     var div = document.createElement("div");
+    
+    
 
-//variable that displays and increases the quantity of the list
-    var children = todolist.children.length+1;
+//increases the quantity of the list
+    children+=1;
+     
 
 //labeling the types and IDs
-    div .setAttribute("type", "input " + children);
+    div.setAttribute("id", "item" + children);
+    //checkbox
+    inpt.setAttribute("name", "input");
     inpt.setAttribute("type", "checkbox");
-    inpt.setAttribute("id", "input");
+    inpt.setAttribute("onclick", "myFunction()")
+    inpt.setAttribute("id", "chkbx");
+    inpt.setAttribute("value", children);
 
 //puting the checkbox and label inside the div
     div.append(inpt, lbl);
@@ -34,6 +41,7 @@ function addlist(){
     
 //making the list from the text box
     lbl.innerHTML = display.value;
+    thelbllist.push(display.value);
     
 //empty the textbox
     display.value = "";
@@ -45,11 +53,38 @@ function addlist(){
 }
 
 function removelist(){
-
     
     
-    todolist.removeChild(todolist.firstElementChild);
+    
+    todolist.removeChild(todolist.lastChild);
+    thelbllist.pop();
+    children -=1;
             
-          
-        }
+}
 
+
+
+
+
+//records all checked items
+document.querySelector("[name=thelist]").addEventListener("click", 
+          e => {
+            let tgt = e.target;
+            if (tgt.name==="input") {
+              let checked = [...e.currentTarget.querySelectorAll(`[name=${tgt.name}]:checked`)];
+              //display all checked items
+              document.getElementById("text1").innerHTML = checked.map(tgt => thelbllist[tgt.value]).join("<br> ");
+              document.getElementById("text2").innerHTML = "Done Tasks:" + document.querySelectorAll('input[type="checkbox"]:checked').length;
+            }   
+        }
+)
+
+
+
+
+function showconsole(){
+console.log(thelbllist);
+alert(document.querySelectorAll('input[type="checkbox"]:checked').length);
+
+
+}
