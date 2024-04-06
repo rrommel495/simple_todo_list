@@ -1,0 +1,10 @@
+#tdlist{
+    display: grid;
+    grid-template-columns: 20px;
+    grid-template-rows: repeat(4px, 1 fr);
+}
+
+
+label{
+    width: 50%;
+}
