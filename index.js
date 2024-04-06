@@ -29,15 +29,20 @@ function addlist(){
     //checkbox
     inpt.setAttribute("name", "input");
     inpt.setAttribute("type", "checkbox");
-    inpt.setAttribute("onclick", "myFunction()")
-    inpt.setAttribute("id", "chkbx");
+    inpt.setAttribute("id", "chkbx"+children);
     inpt.setAttribute("value", children);
+    //label
+    lbl.setAttribute('onclick', 'myFunction('+children+')')
+    lbl.setAttribute("value", children);
+    lbl.setAttribute("for", "chkbx"+children);
+    
+    
 
 //puting the checkbox and label inside the div
     div.append(inpt, lbl);
 
 //displaying the div
-    todolist.append(div);
+    todolist.appendChild(div);
     
 //making the list from the text box
     lbl.innerHTML = display.value;
@@ -88,3 +93,8 @@ alert(document.querySelectorAll('input[type="checkbox"]:checked').length);
 
 
 }
+
+function myFunction(x){
+    document.querySelector("[id=chkbx"+x+"]").value(checked)
+
+    }
