@@ -32,7 +32,7 @@ function addlist(){
     inpt.setAttribute("id", "chkbx"+children);
     inpt.setAttribute("value", children);
     //label
-    lbl.setAttribute('onclick', 'myFunction('+children+')')
+    lbl.setAttribute('onclick', 'LabelOnClick('+children+')')
     lbl.setAttribute("value", children);
     lbl.setAttribute("for", "chkbx"+children);
     
@@ -94,7 +94,8 @@ alert(document.querySelectorAll('input[type="checkbox"]:checked').length);
 
 }
 
-function myFunction(x){
+function LabelOnClick(x){
     document.querySelector("[id=chkbx"+x+"]").value(checked)
+    
 
     }
