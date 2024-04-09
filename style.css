@@ -14,31 +14,22 @@ main{
     text-align: center;
 }
 
+.form-check-input:hover{
+    background-color: skyblue;
 
-
-
-
-#tdlist{
-    display: grid;
-    grid-template-columns: 20px;
-    grid-template-rows: repeat(4px, 1 fr);
 }
 
 
-label{
-    width: 50%;
-}
 
 
-li, span{
+
+ span{
     float: right;
-    padding-right: 10px;
+    border: 0.1px solid black;
+    border-radius: 100px;
 }
 
  .sectionList{
     height: 25vh;
 }
 
-
-.sectionAccomplish{
-}

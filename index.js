@@ -2,7 +2,7 @@
 
 
 let display = document.getElementById("display");
-let todolist = document.getElementById("tdList");// variable that calls ul
+let todolist = document.getElementById("tdList");// variable that calls form
 let quantity = document.getElementById("quantity");
 var thelbllist = []
 var children = todolist.children.length-1
@@ -10,34 +10,46 @@ var children = todolist.children.length-1
 
 
 
+
+
+
 function addlist(){
 
-    
-//Variables in creating the elements
-    var inpt = document.createElement("input");
+var inpt = document.createElement("input");
     var lbl = document.createElement("label");
     var div = document.createElement("div");
     var spn = document.createElement("span");
     
+//Variables in creating the elements
+    
+    if(display.value === ''){
+        alert("You need to put something");
+    }
 
 //increases the quantity of the list
     children+=1;
      
 
 //labeling the types and IDs
+    todolist.setAttribute("class", "list-group list-group-flush")
+
+
     div.setAttribute("id", "item" + children);
+    div.setAttribute("class", "list-group-item list-group-item-action active");
     //checkbox
     inpt.setAttribute("name", "input");
     inpt.setAttribute("type", "checkbox");
     inpt.setAttribute("id", "chkbx"+children);
     inpt.setAttribute("value", children);
+    inpt.setAttribute("class", "form-check-input");
     //label
     lbl.setAttribute("value", children);
     lbl.setAttribute("for", "chkbx"+children);
 
 
-    spn.innerHTML = "Remove";
+    spn.innerHTML = "\u00d7";
     spn.setAttribute("OnClick", "clickme(this)")
+    spn.setAttribute("class","btn btn-danger")
     
     
 
@@ -57,18 +69,15 @@ function addlist(){
 //display number of children
     quantity.innerHTML = children;
     
+
+
+
+   
+    
   
 }
 
-function removelist(){
-    
-    
-    
-    todolist.removeChild(todolist.lastChild);
-    thelbllist.pop();
-    children -=1;
-            
-}
+
 
 
 
@@ -81,15 +90,20 @@ document.querySelector("[name=thelist]").addEventListener("click",
             if (tgt.name==="input") {
               let checked = [...e.currentTarget.querySelectorAll(`[name=${tgt.name}]:checked`)];
               //display all checked items
-              document.getElementById("text1").innerHTML = checked.map(tgt => thelbllist[tgt.value]).join("<br> ");
-              document.getElementById("text2").innerHTML = "Done Tasks:" + document.querySelectorAll('input[type="checkbox"]:checked').length;
-            }   
+                document.getElementById("text1").innerHTML = checked.map(tgt => thelbllist[tgt.value]).join("<br> ");
+                document.getElementById("text2").innerHTML = "Done Tasks:" + document.querySelectorAll('input[type="checkbox"]:checked').length;
+            
+              
+              
+            } 
+              
         }
+        
 )
 
 
 
-
+//Secret button that shows the quantity of checked items and the array
 function showconsole(){
 console.log(thelbllist);
 alert(document.querySelectorAll('input[type="checkbox"]:checked').length);
@@ -97,6 +111,8 @@ alert(document.querySelectorAll('input[type="checkbox"]:checked').length);
 
 }
 
+
+//Remove Button
 function clickme(x){
      inputElement = x.parentNode;
      var thisIndex = inputElement.id[4]
@@ -104,6 +120,7 @@ function clickme(x){
     inputElement.remove()
     delete thelbllist[thatIndex];
     console.log(thelbllist)
+    children -=1;
 
 }
 
