@@ -17,7 +17,7 @@ function addlist(){
     var inpt = document.createElement("input");
     var lbl = document.createElement("label");
     var div = document.createElement("div");
-    
+    var spn = document.createElement("span");
     
 
 //increases the quantity of the list
@@ -32,14 +32,17 @@ function addlist(){
     inpt.setAttribute("id", "chkbx"+children);
     inpt.setAttribute("value", children);
     //label
-    lbl.setAttribute('onclick', 'LabelOnClick('+children+')')
     lbl.setAttribute("value", children);
     lbl.setAttribute("for", "chkbx"+children);
+
+
+    spn.innerHTML = "Remove";
+    spn.setAttribute("OnClick", "clickme(this)")
     
     
 
 //puting the checkbox and label inside the div
-    div.append(inpt, lbl);
+    div.append(inpt, lbl, spn);
 
 //displaying the div
     todolist.appendChild(div);
@@ -94,8 +97,13 @@ alert(document.querySelectorAll('input[type="checkbox"]:checked').length);
 
 }
 
-function LabelOnClick(x){
-    document.querySelector("[id=chkbx"+x+"]").value(checked)
-    
+function clickme(x){
+     inputElement = x.parentNode;
+     var thisIndex = inputElement.id[4]
+     var thatIndex = inputElement.id.substr(4,6)
+    inputElement.remove()
+    delete thelbllist[thatIndex];
+    console.log(thelbllist)
 
-    }
+}
+

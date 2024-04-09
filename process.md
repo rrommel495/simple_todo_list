@@ -31,3 +31,13 @@ So below are some info on how I developed this project.
 5. learned about the [map] function
 6. uploaded it to github
 7. begun designing it
+
+### April 9
+
+1. was able to make a functional remove button
+
+- _since removeChild doesnt work on my code, I made another way of doing it._
+
+2. whenever you remove the item from the list, it also taken away from the array
+
+- \_you can check it on the Inspect>Console of the page

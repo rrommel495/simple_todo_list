@@ -28,3 +28,17 @@ main{
 label{
     width: 50%;
 }
+
+
+li, span{
+    float: right;
+    padding-right: 10px;
+}
+
+ .sectionList{
+    height: 25vh;
+}
+
+
+.sectionAccomplish{
+}
