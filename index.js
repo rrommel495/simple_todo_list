@@ -92,9 +92,6 @@ document.querySelector("[name=thelist]").addEventListener("click",
               //display all checked items
                 document.getElementById("text1").innerHTML = checked.map(tgt => thelbllist[tgt.value]).join("<br> ");
                 document.getElementById("text2").innerHTML = "Done Tasks:" + document.querySelectorAll('input[type="checkbox"]:checked').length;
-            
-              
-              
             } 
               
         }
@@ -115,11 +112,10 @@ alert(document.querySelectorAll('input[type="checkbox"]:checked').length);
 //Remove Button
 function clickme(x){
      inputElement = x.parentNode;
-     var thisIndex = inputElement.id[4]
-     var thatIndex = inputElement.id.substr(4,6)
-    inputElement.remove()
-    delete thelbllist[thatIndex];
-    console.log(thelbllist)
+     var thatIndex = inputElement.id.substr(4,6) //getting the id of the specific div
+    inputElement.remove() //removing the entire div
+    delete thelbllist[thatIndex]; //removing the label from the array list
+    console.log(thelbllist) //displaying the array in console, for checking
     children -=1;
 
 }

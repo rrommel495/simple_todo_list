@@ -40,4 +40,12 @@ So below are some info on how I developed this project.
 
 2. whenever you remove the item from the list, it also taken away from the array
 
-- \_you can check it on the Inspect>Console of the page
+- you can check it on the Inspect>Console of the page
+
+3. started designing it using Bootstrap
+
+### April 10
+
+1. Just added some comments and other info.
+
+- _I was focused on going back to the basics in preparation to Node.JS_
